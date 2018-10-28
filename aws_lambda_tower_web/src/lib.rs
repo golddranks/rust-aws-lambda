@@ -32,7 +32,7 @@ pub trait ServiceBuilderExt {
     fn run_lambda(self) -> Result<(), io::Error>;
 }
 
-impl<T, C, M> ServiceBuilderExt for ServiceBuilder<T, C, M>
+impl<T, C, M> ServiceBuilderExt for ServiceBuilder<T, DefaultSerializer, C, M>
 where
     T: IntoResource<DefaultSerializer, RequestBody>,
     T::Resource: Send + 'static,
